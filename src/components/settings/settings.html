@@ -1,0 +1,97 @@
+<ion-header style="background: #488aff">
+  <ion-navbar>
+    <ion-buttons left (click)="back()">
+      <button ion-button icon-only>
+        <ion-icon name="close"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title text-center>
+      Account settings
+    </ion-title>
+    <!--<ion-buttons (click)="showSearchBar1()" right>-->
+      <!--<button ion-button icon-only>-->
+        <!--<img src="../../../assets/icons/user.png" style="border-radius: 30px">-->
+        <!--&lt;!&ndash;<ion-icon name="search" ios="ios-search" md="md-search"></ion-icon>&ndash;&gt;-->
+      <!--</button>-->
+    <!--</ion-buttons>-->
+  </ion-navbar>
+</ion-header>
+
+<!--Карточки-->
+
+<ion-content padding-vertical >
+  <div class="current">
+    <table>
+      <tr>
+        <td><i class="far fa-star"></i></td>
+        <td>
+          <h5>Account Type</h5>
+          <h6>Your active account type</h6>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <div>
+    <div  style="color: #38b9f8; text-align: left; padding-top: 5px; padding-left: 10px">
+      Account Information
+    </div>
+    <ion-list style="padding-left: 5px">
+      <ion-item>
+        <table style="width: 100%">
+          <tr style="border-bottom: 1px solid #dedede; padding-bottom: 6px;  padding-top: 5px;" (click)="info()">
+            <!--<ion-label>-->
+            <td> <img [src]="defaultImg1" width="20" height="22"></td>
+            <td> <h2>Personal Information</h2>
+              <p style="font-size: 12px; color: #dedede">Name, date of birth, e-mail</p></td>
+            <!--</ion-label>-->
+          </tr>
+          <tr style="border-bottom: 1px solid #dedede; padding-bottom: 6px;  padding-top: 5px;" (click)="pass()">
+            <!--<ion-label>-->
+            <td> <img [src]="defaultImg2" width="23" height="24"></td>
+            <td> <h2>Change Password</h2>
+              <p style="font-size: 12px; color: #dedede">For your App and Online Banking</p></td>
+            <!--</ion-label>-->
+          </tr>
+          <tr style="border-bottom: 1px solid #dedede; padding-bottom: 6px;  padding-top: 5px;">
+            <!--<ion-label>-->
+            <td> <img [src]="defaultImg3" width="19" height="14"></td>
+            <td> <h2>Your Address</h2>
+              <p style="font-size: 12px; color: #dedede">Change Shipping Address</p></td>
+            <!--</ion-label>-->
+          </tr>
+        </table>
+
+      </ion-item>
+    </ion-list>
+    <div  style="color: #38b9f8; text-align: left; padding-top: 5px; padding-left: 10px">
+      Application settings
+    </div>
+    <ion-list style="padding-left: 5px">
+      <ion-item>
+        <table style="width: 100%">
+          <tr style="border-bottom: 1px solid #dedede; padding-bottom: 6px;  padding-top: 5px;" (click)="notification()">
+            <!--<ion-label>-->
+            <td> <img [src]="defaultImg4" width="19" height="24"></td>
+            <td> <h2>Notifications</h2>
+              <p style="font-size: 12px; color: #dedede">Push and E-mail Notifications</p></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #dedede; padding-bottom: 6px;  padding-top: 5px;">
+            <!--<ion-label>-->
+            <td> <img [src]="defaultImg5" width="24" height="23"></td>
+            <td> <h2>Smart Login</h2>
+              <p style="font-size: 12px; color: #dedede">Fingerprint or Pattern login</p></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #dedede; padding-bottom: 6px;  padding-top: 5px;" (click)="language()">
+            <!--<ion-label>-->
+            <td> <img [src]="defaultImg6" width="23" height="23"></td>
+            <td> <h2>Change Language</h2>
+              <p style="font-size: 12px; color: #dedede">Choose language</p></td>
+          </tr>
+        </table>
+
+      </ion-item>
+    </ion-list>
+  </div>
+
+</ion-content>

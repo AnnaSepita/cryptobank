@@ -2,15 +2,16 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {Nav, Platform} from 'ionic-angular';
 import {StatusBar} from '@ionic-native/status-bar';
 import {ScreenOrientation} from "@ionic-native/screen-orientation";
-
-import {SliderComponent} from "./slider/slider.component";
+//import {ShowMoreComponent} from "../components/show-more/show-more";
+//import {SliderComponent} from "./slider/slider.component";
+import {App} from "ionic-angular/components/app/app";
 import {MainboardComponent} from "./mainboard/mainboard.component";
 import {ConnectionService} from "./shared/services/connection.service";
 import {UserService} from "./shared/services/user.service";
-import {ProfileComponent} from "./mainboard/profile/profile.component";
+//import {ProfileComponent} from "./mainboard/profile/profile.component";
 import {SplashScreen} from "@ionic-native/splash-screen";
 import {AuthComponent} from "./auth/auth.component";
-
+import { Storage } from '@ionic/storage';
 @Component({
     selector: 'root',
     templateUrl: 'app.html'
@@ -19,12 +20,14 @@ export class MyApp implements OnInit {
     @ViewChild(Nav) navCtrl: Nav;
     rootPage: any;
 
-    constructor(platform: Platform,
+    constructor(public platform: Platform,
                 statusBar: StatusBar,
                 splashScreen: SplashScreen,
                 private screenOrientation: ScreenOrientation,
+                private storage: Storage,
                 private connection: ConnectionService,
-                private user: UserService) {
+                private user: UserService,
+                 app: App) {
 
         platform.ready().then(() => {
             // Okay, so the platform is ready and our plugins are available.
@@ -32,23 +35,32 @@ export class MyApp implements OnInit {
             if (platform.is('cordova')) {
                 this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
             }
+          this.platform.registerBackButtonAction(() => {
+            app.navPop();
+          });
             statusBar.styleDefault();
             this.user.firstEnter().get().then((res) => {
                 if (!res) {
-                    this.navCtrl.setRoot(SliderComponent);
+                   // this.navCtrl.setRoot(SliderComponent);
+                  this.navCtrl.setRoot(AuthComponent);
+                 // this.navCtrl.setRoot(MainboardComponent);
+                 // this.navCtrl.setRoot(ShowMoreComponent);
                 }
                 if (res === 'Unfinished') {
                     this.navCtrl.setRoot(AuthComponent);
+                 // this.navCtrl.setRoot(MainboardComponent);
                 }
-                if (res === 'Finished' && !localStorage.user_id) {
+                if (res === 'Finished' && localStorage.token == null || localStorage.token == undefined) {
                     this.navCtrl.setRoot(AuthComponent)
-                } else if (res === 'Finished' && localStorage.user_id) {
+                } else if (res === 'Finished' && localStorage.token != null || localStorage.token != undefined) {
                     this.user.getUser().then((res) => {
-                        if (!res.last_name) {
-                            this.navCtrl.setRoot(ProfileComponent)
-                        } else {
-                            this.navCtrl.setRoot(MainboardComponent);
-                        }
+                      this.navCtrl.setRoot(MainboardComponent);
+                        // if (!res.last_name) {
+                        //
+                        //   // this.navCtrl.setRoot(ProfileComponent)
+                        // } else {
+                        //    // this.navCtrl.setRoot(MainboardComponent);
+                        // }
                     })
                 }
             });
@@ -106,4 +118,3 @@ export class MyApp implements OnInit {
     }
 
 }
-

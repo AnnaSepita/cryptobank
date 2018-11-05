@@ -1,7 +1,7 @@
 <ion-content padding>
     <ion-row align-items-center>
         <ion-row class="logo_container">
-            <img class="logo" src="../assets/logos/logo.png">
+            <img class="logo"  [src]="defaultImg">
         </ion-row>
         <ion-row class="title_container">
             <div>
@@ -10,8 +10,8 @@
             </div>
         </ion-row>
         <div class="btn_container">
-            <button ion-button round (click)="GoToPage('signUp')">Sign Up</button>
-            <button ion-button round (click)="GoToPage('signIn')">Sign In</button>
+            <button ion-button round (click)="register()">Sign Up</button>
+            <button ion-button round (click)="login()">Sign In</button>
         </div>
     </ion-row>
 </ion-content>

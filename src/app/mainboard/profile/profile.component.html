@@ -1,34 +1,170 @@
-<ion-header>
-    <ion-navbar color='navbarColor'>
-        <ion-title text-center>
-            Профіль
-        </ion-title>
-    </ion-navbar>
-    <ngx-loading-bar></ngx-loading-bar>
+<ion-header style="background: #488aff">
+  <ion-navbar>
+    <!--<ion-buttons left>-->
+    <!--<button ion-button icon-only disabled>-->
+    <!--<ion-icon></ion-icon>-->
+    <!--</button>-->
+    <!--</ion-buttons>-->
+    <ion-title text-center>
+      Withdrow
+    </ion-title>
+    <ion-buttons (click)="showSearchBar1()" right  style=" position: fixed; right: 5px">
+      <button  right style="background: inherit">
+        <!--<img [src]="assets/icons/user.png" style="border-radius: 30px" alt="" *ngIf="!localStorage.user_picture">-->
+        <!--<img [src]="localStorage.user_picture" alt="" *ngIf="localStorage.user_picture!=''">-->
+        <i class="far fa-user" *ngIf="!this.entity.photo_path || this.entity.photo_path=='undefined'"  style="border-radius: 30px; padding-left: 10px; padding-right: 10px; padding-top: 8px; padding-bottom: 8px; font-size: 22px; background: white; color: #38b9f8"></i>
+
+        <!--<img [src]="defaultImg" alt="" *ngIf="!this.entity.photo_path || this.entity.photo_path=='undefined'"  style="border-radius: 30px; width: 37px; height: 37px;">-->
+        <span showWhen="this.entity.photo_path!='' || this.entity.photo_path!='undefined'">
+        <img [src]="this.entity.photo_path" alt="" *ngIf="this.entity.photo_path!='' "  style="border-radius: 30px; width: 37px; height: 37px">
+        </span>
+        <!--<img src="../../../assets/icons/user.png">-->
+        <!--<ion-icon name="search" ios="ios-search" md="md-search"></ion-icon>-->
+      </button>
+      <!--<button ion-button icon-only>-->
+        <!--<img [src]="defaultImg" alt="" *ngIf="!this.entity.photo_path"  style="border-radius: 30px">-->
+        <!--<img [src]="this.entity.photo_path" alt="" *ngIf="this.entity.photo_path!=''"  style="border-radius: 30px; width: 37px; height: 37px">-->
+        <!--&lt;!&ndash;<img src="../../../assets/icons/user.png" style="border-radius: 30px">&ndash;&gt;-->
+        <!--&lt;!&ndash;<ion-icon name="search" ios="ios-search" md="md-search"></ion-icon>&ndash;&gt;-->
+      <!--</button>-->
+    </ion-buttons>
+  </ion-navbar>
 </ion-header>
 
+<!--Карточки-->
+
 <ion-content padding-vertical>
-    <div class="header_toogles">
-        <ion-segment [(ngModel)]="segment">
-            <ion-segment-button class="left_button" value="info">
-                <p>Про мене</p>
-            </ion-segment-button>
-            <ion-segment-button class="right_button" value="skills">
-                <p>Навички</p>
-            </ion-segment-button>
-        </ion-segment>
-    </div>
+  <div class="current">
+    Withdrow from :
+  </div>
+  <div>
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>BITCOIN</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        Balance: 200
+        <ion-buttons class="btn" (click)="showMore()">
+          <button style="background: none; color: white">
+            Choose
+          </button>
+        </ion-buttons>
+      </ion-card-content>
+    </ion-card>
+    <!--<ion-card>-->
+      <!--<ion-card-header>-->
+        <!--<ion-card-title>BITCOIN</ion-card-title>-->
+      <!--</ion-card-header>-->
+      <!--<ion-card-content>-->
+        <!--Balance: 20-->
+        <!--<ion-buttons class="btn" (click)="showMore()">-->
+          <!--<button style="background: inherit; color: white">-->
+            <!--Choose-->
+          <!--</button>-->
+        <!--</ion-buttons>-->
+      <!--</ion-card-content>-->
+    <!--</ion-card>-->
+    <!--<ion-card>-->
+      <!--<ion-card-header>-->
+        <!--<ion-card-title>RIPPLE</ion-card-title>-->
+      <!--</ion-card-header>-->
+      <!--<ion-card-content>-->
+        <!--Balance: 200-->
+        <!--<ion-buttons class="btn" (click)="showMore()">-->
+          <!--<button style="background: inherit; color: white">-->
+            <!--Choose-->
+          <!--</button>-->
+        <!--</ion-buttons>-->
+      <!--</ion-card-content>-->
+    <!--</ion-card>-->
+    <!--<ion-card>-->
+      <!--<ion-card-header>-->
+        <!--<ion-card-title>RIPPLE</ion-card-title>-->
+      <!--</ion-card-header>-->
+      <!--<ion-card-content>-->
+        <!--Balance: 200-->
+        <!--<ion-buttons class="btn" (click)="showMore()">-->
+          <!--<button style="background: inherit; color: white">-->
+            <!--Choose-->
+          <!--</button>-->
+        <!--</ion-buttons>-->
+      <!--</ion-card-content>-->
+    <!--</ion-card>-->
+    <!--<ion-card style="padding-bottom: 5px">-->
+      <!--<ion-card-header style="margin-top: 15px">-->
+        <!--<ion-card-title>ADD NEW WALLET/E-MAIL-->
 
-    <div [ngSwitch]="segment">
+        <!--</ion-card-title>-->
 
-        <div *ngSwitchCase="'info'">
-            <page-profile-info [editMode]="editMode" (onUserChange)="onUserChange($event)"></page-profile-info>
-        </div>
+      <!--</ion-card-header>-->
+      <!--<ion-card-content>-->
+        <!--<ion-buttons class="btn" (click)="showMore1()" style="margin-top: -35px">-->
+          <!--<button style="background: inherit; color: white">-->
+            <!--Choose-->
+          <!--</button>-->
+        <!--</ion-buttons>-->
 
-        <div *ngSwitchCase="'skills'">
-            <page-profile-skill [editMode]="editMode" (onSkillChange)="onSkillChange($event)"></page-profile-skill>
-        </div>
-    </div>
-
-
+      <!--</ion-card-content>-->
+    <!--</ion-card>-->
+    <!--<ion-card>-->
+    <!--<ion-card-header>-->
+    <!--<ion-card-title>RIPPLE</ion-card-title>-->
+    <!--</ion-card-header>-->
+    <!--<ion-card-content>-->
+    <!--Balance: 200-->
+    <!--<ion-buttons class="btn" (click)="showMore()">-->
+    <!--<button style="background: inherit; color: white">-->
+    <!--Show More-->
+    <!--</button>-->
+    <!--</ion-buttons>-->
+    <!--</ion-card-content>-->
+    <!--</ion-card>-->
+  </div>
 </ion-content>
+<ion-footer>
+  <table style="width: 100%; text-align: center">
+    <tr style="color: #dedede; font-size: 20px">
+      <td   (click)="wallet()"><i class="fas fa-wallet"></i></td>
+      <td (click)="depositpage()">
+        <i class="far fa-credit-card"></i>
+        <!--<i class="far fa-credit-card"></i>-->
+        <!--<img [src]="defaultImg1" >-->
+      </td>
+      <td (click)="withdraw()">
+        <i class="far fa-credit-card fa-flip-vertical" style="color: #2faeff;"></i>
+        <!--<img [src]="defaultImg2">-->
+        <!--<i class="far fa-credit-card"></i>-->
+      </td>
+      <td (click)="exchange()">
+        <i class="fas fa-sync"></i>
+        <!--<img [src]="defaultImg3" style="padding-top: 3px">-->
+        <!--<i class="fas fa-donate"></i>-->
+      </td>
+      <td (click)="sendp()">   <ion-icon ios="ios-send" md="md-send"></ion-icon>
+      </td>
+    </tr>
+    <!--<tr style="color: #dedede; font-size: 20px">-->
+      <!--<td style="color: #dedede;" (click)="wallet()"><i class="fas fa-wallet"></i></td>-->
+      <!--<td (click)="depositpage()">-->
+        <!--&lt;!&ndash;<i class="far fa-credit-card"></i>&ndash;&gt;-->
+        <!--<img [src]="defaultImg1" >-->
+      <!--</td>-->
+      <!--<td (click)="withdraw()">-->
+        <!--<img [src]="defaultImg2" >-->
+        <!--&lt;!&ndash;<i class="far fa-credit-card"></i>&ndash;&gt;-->
+      <!--</td>-->
+      <!--<td (click)="exchange()">-->
+        <!--<img [src]="defaultImg3" style="padding-top: 3px">-->
+        <!--&lt;!&ndash;<i class="fas fa-donate"></i>&ndash;&gt;-->
+      <!--</td>-->
+      <!--<td (click)="sendp()">  <ion-icon name="send"></ion-icon></td>-->
+    <!--</tr>-->
+    <tr style="color: #dedede">
+      <td (click)="wallet()">Wallets</td>
+      <td  (click)="depositpage()">Deposit</td>
+      <td (click)="withdraw()">Withdraw</td>
+      <td  (click)="exchange()">Exchange</td>
+      <td  (click)="sendp()">Send</td>
+    </tr>
+  </table>
+</ion-footer>

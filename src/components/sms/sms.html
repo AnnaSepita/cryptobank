@@ -1,0 +1,55 @@
+<ion-header style="background: #488aff">
+  <ion-navbar>
+    <ion-buttons left (click)="back()">
+      <button ion-button icon-only>
+        <ion-icon name="arrow-round-back"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title text-center>
+      Change password
+    </ion-title>
+    <!--<ion-buttons (click)="showSearchBar()" right>-->
+    <!--<button style="background: inherit; color: white">-->
+    <!--Apply-->
+    <!--&lt;!&ndash;<ion-icon name="user" ios="ios-search" md="md-search"></ion-icon>&ndash;&gt;-->
+    <!--</button>-->
+    <!--</ion-buttons>-->
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <div class="bg_container">
+    <!--<img class="logo" src="../assets/logos/logo.png">-->
+    <p class="title_container">
+      Forgot your password?
+    </p>
+  </div>
+  <div class="panel">
+    <div>
+      <label>
+        Enter code from mail/sms
+      </label>
+      <input type="text" [(ngModel)]="user.sms">
+      <!--<img src="../assets/icons/letter.png">-->
+    </div>
+    <!--<div style="text-align: center; padding: 10px">-->
+      <!--<label>-->
+        <!--or-->
+      <!--</label>-->
+    <!--</div>-->
+    <!--<div>-->
+      <!--<label>-->
+        <!--Type your Password-->
+      <!--</label>-->
+      <!--<input type="password">-->
+      <!--<img src="../assets/icons/phone.png">-->
+    <!--</div>-->
+
+    <div style="padding-top: 50px">
+      <button ion-button round class="btn_gradient1" (click)="login()"><span color="white">Sent</span></button>
+    </div>
+    <div class="btn_container">
+
+    </div>
+  </div>
+
+</ion-content>

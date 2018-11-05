@@ -1,17 +1,18 @@
 page-mainboard {
   .toolbar-background-ios, .toolbar-background {
-    background-color: $header_backgrond;
+    background: linear-gradient( to right, #39aafb, #38b9f8, #39cefa );
+    color: white;
   }
   .bar-buttons-ios[end] {
     .bar-button-default-ios, .bar-button-default.bar-button-ios-default, .bar-button-clear-ios-default {
-      color: $header_bg_color;
+      color: white;
     }
   }
   .toolbar-title-md {
-    color: $header_bg_color;
+    color: white;
   }
   .button-clear-ios, .bar-button-default-md, .bar-button-clear-md-default, .bar-button-md-default {
-    color: $header_bg_color;
+    color: white;
   }
 
   ion-segment {
@@ -57,7 +58,7 @@ page-mainboard {
   }
   .tabs-md .tab-button[aria-selected=true] .tab-button-icon, .tabs-md .tab-button[aria-selected=true]{
     font-size: 18px;
-    color: #fec01c!important;
+    color: #488aff!important;
   }
   .tabs-md .tab-button-icon{
     font-size: 18px;

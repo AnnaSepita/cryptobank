@@ -1,15 +1,29 @@
-const api = 'http://hire-man.grassbusinesslabs.tk/public/api/';
+const api = 'http://167.99.208.229:9000/';
+//const api = 'http://hire-man.grassbusinesslabs.tk/public/api/';
 // const api = 'https://hireman.smartcapper.online/server/public/api/';
 
 export const COMMON_URL = {
   auth: {
-    login: api + 'login',
+    login: api + 'auth', //
     logout: api + 'logout'
   },
   user: {
-    index: api + 'user',
-    create: api + 'register',
-    update: api + 'user/:id'
+    index: api + 'users/me', //
+    create: api + 'users', //
+    update: api + 'users/', //
+    varefications: api + 'varefications',
+    getethereumaddresses: api + 'ethereum/',
+    picture: api + 'users/pictures',
+    createbitcoin: api + 'bitcoin',
+    retrievebitcoin: api + 'bitcoin',
+    password: api + 'users/',
+    userdoc: api + 'users/docs',
+    ethereum: api +'ethereum',
+    ethereumbalance: api +'ethereum/balances/',
+    transaction: api + 'ethereum/transactions',
+    varefic: api + 'varefications/',
+    key: api + 'users/key',
+    users: api +'users'
   },
   job: {
     index: api + 'jobs',

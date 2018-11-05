@@ -1,32 +1,29 @@
-<ion-header>
-  <ion-navbar hideBackButton>
-    <ion-row justify-content-between align-items-center>
-      <ion-col>
-        <ion-buttons ion-col>
-          <button ion-button text-capitalize (click)="goBack()">
-            Назад
-          </button>
-        </ion-buttons>
-      </ion-col>
-
-      <ion-title text-center ion-col>
-        Підтримка
-      </ion-title>
-
-      <ion-buttons ion-col text-end>
-        <button ion-button text-capitalize
-                [disabled]="disableSendButton()"
-                (click)="sendMessage()">
-          Відправити
-        </button>
-      </ion-buttons>
-
-    </ion-row>
+<ion-header style="background: #488aff">
+  <ion-navbar>
+    <ion-buttons left (click)="back()">
+      <button ion-button icon-only>
+        <ion-icon name="close"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title text-center>
+      Deposit
+    </ion-title>
+    <ion-buttons (click)="showSearchBar1()" right>
+      <button style="background: inherit; color: white">
+        Apply
+        <!--<img src="../../../assets/icons/user.png" style="border-radius: 30px">-->
+        <!--<ion-icon name="search" ios="ios-search" md="md-search"></ion-icon>-->
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <h6 no-margin margin-top>Опишіть проблему:</h6>
+<ion-content>
+  <div class="current">
+    yourposta@mail.ru
+  </div>
+  <h6 no-margin margin-top> We value your opinion as one of the first users.<br>
+  Please, write down what do you think about cryptobank, wishes, impressoins, desired improvements, found defects, etc.</h6>
   <ion-textarea
     rows="10"
     [(ngModel)]="message"></ion-textarea>

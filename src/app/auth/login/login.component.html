@@ -1,33 +1,71 @@
-<ion-content padding>
+<ion-content >
     <div class="bg_container">
-        <img class="logo" src="../assets/logos/logo.png">
+        <img class="logo"  [src]="defaultImg">
         <p class="title_container">
             Sign In
         </p>
     </div>
     <div class="panel">
-        <div>
-            <label>
-                E-Mail
-            </label>
-            <input type="email">
-            <img src="../assets/icons/letter.png">
-        </div>
-        <div>
-            <label>
-                Password
-            </label>
-            <input type="password">
-            <img src="../assets/icons/eye.png">
+        <!--<div>-->
+            <!--<label>-->
+                <!--E-Mail-->
+            <!--</label>-->
+            <!--<input type="email"  [(ngModel)]="user.email">-->
+            <!--<img  [src]="defaultImg1">-->
+        <!--</div>-->
+        <!--<div>-->
+            <!--<label>-->
+                <!--Password-->
+            <!--</label>-->
+            <!--<input type="password"  [(ngModel)]="user.password" [type]="isActive ? 'password' : 'text'">-->
+            <!--<img  [src]="defaultImg2" (click)="showPass()">-->
+        <!--</div>-->
+      <form (ngSubmit)="login(conversationId.value, userId)">
+
+        <!--<ion-item>-->
+          <!--<ion-label floating>Full name</ion-label>-->
+          <!--<ion-input type="text"  [(ngModel)]="user.name" name="name">-->
+          <!--</ion-input>-->
+          <!--&lt;!&ndash;<ion-input type="image"  >&ndash;&gt;-->
+          <!--&lt;!&ndash;</ion-input>&ndash;&gt;-->
+
+        <!--</ion-item>-->
+        <!--<img class="icon" [src]="defaultImg3" width="21" height="23">-->
+
+        <div class="bord">
+        <ion-item>
+          <ion-label floating>E-Mail</ion-label>
+          <ion-input type="text"   [(ngModel)]="user.email" name="email"></ion-input>
+
+        </ion-item>
+          <i class="far fa-envelope"></i>
+           <!--<img  class="icon" [src]="defaultImg1" width="26" height="28">-->
         </div>
 
-        <div class="btn_container">
-            <button ion-button round class="btn_gradient" (click)="GoToPage('signIn')">Sign In</button>
-            <p>Forgot password?</p>
+        <div class="bord">
+        <ion-item>
+          <ion-label floating>Password</ion-label>
+          <ion-input   type="password" [(ngModel)]="user.password" [type]="isActive ? 'password' : 'text'" name="password"></ion-input>
+
+        </ion-item>
+          <i class="far fa-eye" (click)="showPass()" ></i>
+           <!--<img  class="icon" [src]="defaultImg2" (click)="showPass()"  width="31" height="26">-->
         </div>
+
+
+      </form>
+
+        <div class="btn_container" style="margin-top: 40px">
+            <button ion-button round class="btn_gradient" (click)="login()">Sign In</button>
+            <p (click)="forgot()" style="color: #c9c9c9; margin-top: 20px">Forgot password?</p>
+        </div>
+
     </div>
-
+  <div class="account">
+    <p>Don`t have an account? <a (click)="create()">Create now</a></p>
+  </div>
 </ion-content>
+
 
 
 

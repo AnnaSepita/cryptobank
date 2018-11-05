@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="com.hireman.gbl" version="0.0.2" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>HireMan</name>
+    <name>Cryptobank</name>
     <description>An awesome Ionic/Cordova app.</description>
     <author email="hi@ionicframework" href="http://ionicframework.com/">Ionic Framework Team</author>
     <content src="index.html" />
@@ -18,7 +18,8 @@
     <preference name="FadeSplashScreenDuration" value="300" />
     <preference name="SplashShowOnlyFirstTime" value="false" />
     <preference name="SplashScreen" value="screen" />
-    <preference name="SplashScreenDelay" value="3000" />
+    <preference name="SplashScreenDelay" value="700000" />
+    <preference name="loadUrlTimeoutValue" value="700000" />
     <platform name="android">
         <allow-intent href="market:*" />
         <splash density="land-ldpi" src="resources/android/splash/drawable-land-ldpi-screen.png" />
@@ -87,7 +88,6 @@
     <plugin name="com-badrit-base64" spec="^0.2.0" />
     <plugin name="cordova-plugin-network-information" spec="^2.0.1" />
     <plugin name="cordova-plugin-screen-orientation" spec="^3.0.1" />
-    <plugin name="cordova-sqlite-storage" spec="^2.3.1" />
     <allow-navigation href="http://192.168.1.45:8101" />
     <allow-navigation href="http://192.168.1.45:8103" />
     <allow-navigation href="http://192.168.1.45:8104" />
@@ -103,5 +103,6 @@
     <plugin name="cordova-android-support-gradle-release" spec="^1.4.3">
         <variable name="ANDROID_SUPPORT_VERSION" value="21.+" />
     </plugin>
-    <engine name="android" spec="6.3.0" />
+    <plugin name="cordova-sqlite-storage" spec="^2.4.0" />
+    <engine name="android" spec="^6.3.0" />
 </widget>

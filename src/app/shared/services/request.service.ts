@@ -38,6 +38,9 @@ export class RequestService implements Api {
   public post(url: string, credentials: any) {
     return this.http.post(url, credentials)
   }
+  public post1(url: string, credentials: any, headers: any) {
+    return this.http.post(url, credentials, headers)
+  }
 
   /**
    *

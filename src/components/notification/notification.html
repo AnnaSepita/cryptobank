@@ -1,0 +1,143 @@
+<ion-header style="background: #488aff">
+  <ion-navbar>
+    <ion-buttons left (click)="back()" style="margin-left: 10px">
+      <button ion-button icon-only>
+        <i class="fas fa-angle-left"></i>
+        <!--<ion-icon name="close"></ion-icon>-->
+      </button>
+    </ion-buttons>
+    <ion-title text-center>
+      Notifications
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding-vertical >
+  <div class="current">
+    Please select the notification you want to receive
+  </div>
+
+  <div>
+    <!--<div  style="color: #38b9f8; text-align: left; padding-top: 5px; padding-left: 10px">-->
+    <!--Account Information-->
+    <!--</div>-->
+    <ion-list style="padding-left: 5px">
+      <ion-item>
+        <table style="width: 100%">
+          <tr style="border-bottom: 1px solid #dedede; padding-bottom: 6px;  padding-top: 5px;">
+            <!--<ion-label>-->
+            <!--<td> <img src="../../assets/icons/engl.png" width="40" height="40"></td>-->
+            <td> <h2>Login successful</h2></td>
+            <td style="float: right">
+              <label (click)="check1()" *ngIf="check == false">
+                <input class="checkbox" type="checkbox" name="checkbox-test">
+                <span class="checkbox-custom"></span>
+                <span class="label"></span>
+              </label>
+              <img [src]="defaultImg1" *ngIf="check == true" (click)="check2()">
+              <!--<img src="../../assets/icons/check2.png" width="25" height="25"></td>-->
+            <!--</ion-label>-->
+          </tr>
+
+
+
+          <tr style="border-bottom: 1px solid #dedede; padding-bottom: 6px;  padding-top: 5px;">
+            <!--<ion-label>-->
+            <!--<td> <img src="../../assets/icons/russ.png" width="40" height="40"></td>-->
+            <td> <h2>Unsuccessful login</h2></td>
+            <td style="float: right">
+              <label (click)="check3()" *ngIf="check12 == false">
+                <input class="checkbox" type="checkbox" name="checkbox-test">
+                <span class="checkbox-custom"></span>
+                <span class="label"></span>
+              </label>
+              <img [src]="defaultImg1" *ngIf="check12 == true" (click)="check4()">
+              <!--<img src="../../assets/icons/check2.png" width="25" height="25">-->
+            </td>
+            <!--</ion-label>-->
+          </tr>
+
+
+          <tr style="border-bottom: 1px solid #dedede; padding-bottom: 6px;  padding-top: 5px;">
+            <!--<ion-label>-->
+            <!--<td> <img src="../../assets/icons/russ.png" width="40" height="40"></td>-->
+            <td> <h2>The payment has been sent</h2></td>
+            <td style="float: right">
+              <label (click)="check5()" *ngIf="check13 == false">
+                <input class="checkbox" type="checkbox" name="checkbox-test">
+                <span class="checkbox-custom"></span>
+                <span class="label"></span>
+              </label>
+              <img [src]="defaultImg1" *ngIf="check13 == true" (click)="check6()">
+              <!--<img src="../../assets/icons/check2.png" width="25" height="25">-->
+            </td>
+            <!--</ion-label>-->
+          </tr>
+          <tr style="border-bottom: 1px solid #dedede; padding-bottom: 6px;  padding-top: 5px;">
+            <!--<ion-label>-->
+            <!--<td> <img src="../../assets/icons/russ.png" width="40" height="40"></td>-->
+            <td> <h2>Payment received</h2></td>
+            <td style="float: right">
+              <label (click)="check7()" *ngIf="check14 == false">
+                <input class="checkbox" type="checkbox" name="checkbox-test">
+                <span class="checkbox-custom"></span>
+                <span class="label"></span>
+              </label>
+              <img [src]="defaultImg1" *ngIf="check14 == true" (click)="check8()">
+              <!--<img src="../../assets/icons/check2.png" width="25" height="25">-->
+            </td>
+            <!--</ion-label>-->
+          </tr>
+          <tr style="border-bottom: 1px solid #dedede; padding-bottom: 6px;  padding-top: 5px;">
+            <!--<ion-label>-->
+            <!--<td> <img src="../../assets/icons/russ.png" width="40" height="40"></td>-->
+            <td> <h2>Exchange transaction was made</h2></td>
+            <td style="float: right">
+              <label (click)="check9()" *ngIf="check15 == false">
+                <input class="checkbox" type="checkbox" name="checkbox-test">
+                <span class="checkbox-custom"></span>
+                <span class="label"></span>
+              </label>
+              <img [src]="defaultImg1" *ngIf="check15 == true" (click)="check10()">
+              <!--<img src="../../assets/icons/check2.png" width="25" height="25">-->
+            </td>
+            <!--</ion-label>-->
+          </tr>
+
+          <tr style="border-bottom: 1px solid #dedede; padding-bottom: 6px;  padding-top: 5px;">
+            <!--<ion-label>-->
+            <!--<td> <img src="../../assets/icons/russ.png" width="40" height="40"></td>-->
+            <td> <h2>Changed access password</h2></td>
+            <td style="float: right">
+              <label (click)="check11()" *ngIf="check16 == false">
+                <input class="checkbox" type="checkbox" name="checkbox-test">
+                <span class="checkbox-custom"></span>
+                <span class="label"></span>
+              </label>
+              <img [src]="defaultImg1" *ngIf="check16 == true" (click)="check20()">
+              <!--<img src="../../assets/icons/check2.png" width="25" height="25">-->
+            </td>
+            <!--</ion-label>-->
+          </tr>
+          <tr style="border-bottom: 1px solid #dedede; padding-bottom: 6px;  padding-top: 5px;">
+            <!--<ion-label>-->
+            <!--<td> <img src="../../assets/icons/russ.png" width="40" height="40"></td>-->
+            <td> <h2>Changed notifications settings</h2></td>
+            <td style="float: right">
+              <label (click)="check21()" *ngIf="check17 == false">
+                <input class="checkbox" type="checkbox" name="checkbox-test">
+                <span class="checkbox-custom"></span>
+                <span class="label"></span>
+              </label>
+              <img [src]="defaultImg1" *ngIf="check17 == true" (click)="check22()">
+              <!--<img src="../../assets/icons/check2.png" width="25" height="25">-->
+            </td>
+            <!--</ion-label>-->
+          </tr>
+
+        </table>
+
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>

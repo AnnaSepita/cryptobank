@@ -10,21 +10,17 @@ import {RegistrationComponent} from "./registration/registration.component";
 
 export class AuthComponent {
 
-
+  defaultImg;
+  defaultImg1;
     constructor(private navCtrl: NavController) {
-
+      this.defaultImg = 'assets/logos/logo.png';
+      this.defaultImg1 = 'assets/bg/start_page.png';
     }
+  login(){
+    this.navCtrl.push(LoginComponent);
+  }
+  register(){
+    this.navCtrl.push(RegistrationComponent);
+  }
 
-    GoToPage(page: string) {
-        switch (page) {
-            case 'signIn':
-                this.navCtrl.push(LoginComponent);
-                break;
-            case 'signUp':
-                this.navCtrl.push(RegistrationComponent);
-                break;
-            default:
-                break;
-        }
-    }
 }

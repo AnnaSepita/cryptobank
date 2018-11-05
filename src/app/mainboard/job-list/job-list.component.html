@@ -1,195 +1,176 @@
-<!--Хедер-->
-
-<ion-header>
+<!--<ion-menu [content]="content">-->
+<ion-header style="background: #488aff">
   <ion-navbar>
-    <ion-buttons *ngIf="!showSearchbar" left>
+    <ion-buttons left>
       <button ion-button icon-only disabled>
         <ion-icon></ion-icon>
       </button>
     </ion-buttons>
-    <ion-title text-center *ngIf="!showSearchbar">
-      Пропозиції
+    <ion-title text-center>
+      My Wallets
     </ion-title>
-    <ion-buttons *ngIf="!showSearchbar && !myJobs"
-                 (click)="showSearchBar()" right>
-      <button ion-button icon-only>
-        <ion-icon name="search" ios="ios-search" md="md-search"></ion-icon>
+    <ion-buttons (click)="showSearchBar1()" right style=" position: fixed; right: 5px">
+      <button  right style="background: inherit">
+        <!--<img [src]="assets/icons/user.png" style="border-radius: 30px" alt="" *ngIf="!localStorage.user_picture">-->
+        <!--<img [src]="localStorage.user_picture" alt="" *ngIf="localStorage.user_picture!=''">-->
+        <i class="far fa-user" *ngIf="!this.entity.photo_path || this.entity.photo_path=='undefined'"  style="border-radius: 30px; padding-left: 10px; padding-right: 10px; padding-top: 8px; padding-bottom: 8px; font-size: 22px; background: white; color: #38b9f8"></i>
+        <!--<img [src]="defaultImg" alt="" *ngIf="!this.entity.photo_path || this.entity.photo_path=='undefined'"  style="border-radius: 30px; width: 37px; height: 37px;">-->
+        <span showWhen="this.entity.photo_path!='' || this.entity.photo_path!='undefined'">
+        <img [src]="this.entity.photo_path" alt="" *ngIf="this.entity.photo_path!='' ||  this.entity.photo_path!='undefined'"  style="border-radius: 30px; width: 37px; height: 37px">
+        </span>
+       <!--<img src="../../../assets/icons/user.png">-->
+        <!--<ion-icon name="search" ios="ios-search" md="md-search"></ion-icon>-->
       </button>
     </ion-buttons>
-    <ion-buttons *ngIf="!showSearchbar && myJobs" right>
-      <button ion-button icon-only disabled>
-        <ion-icon></ion-icon>
-      </button>
-    </ion-buttons>
-    <div *ngIf="showSearchbar">
-      <ion-searchbar placeholder="Пошук пропозицій"
-                     (ionInput)="onSearchChange($event)"
-                     [animated]="'true'"
-                     [showCancelButton]="'true'"
-                     (ionCancel)="showSearchBar()"></ion-searchbar>
-    </div>
   </ion-navbar>
-  <ngx-loading-bar></ngx-loading-bar>
 </ion-header>
 
-<!--Карточки-->
+<!--Карточки    -->
 
 <ion-content padding-vertical>
-  <div class="header_toogles">
-    <ion-segment [(ngModel)]="category">
-      <ion-segment-button class="left_button" value="all" (click)="setAllJob()">
-        <p>Всі</p>
-      </ion-segment-button>
-      <ion-segment-button class="right_button" value="my" (click)="setMyJob()">
-       <p>Мої</p>
-      </ion-segment-button>
-    </ion-segment>
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+      pullingIcon="arrow-dropdown"
+      refreshingSpinner="circles"
+    >
+    </ion-refresher-content>
+  </ion-refresher>
+<div class="current">
+  Current Balance:
+</div>
+  <div style="background: white" >
+    <ion-card *ngFor=" let name of coin | orderBy: 'displayName'">
+      <ion-card-header>
+        <ion-card-title>{{name.name}}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        Balance: {{name.balance}}
+        <ion-buttons class="btn" (click)="showMore()">
+          <button style="background: none; color: white">
+            Show More
+          </button>
+        </ion-buttons>
+      </ion-card-content>
+    </ion-card>
+    <ion-card *ngIf="balan == true">
+      <ion-card-header>
+        <ion-card-title>BITCOIN</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        Balance: 200
+        <ion-buttons class="btn" (click)="showMore()">
+          <!--<button style="background: inherit; color: white">-->
+            Show More
+          <!--</button>-->
+        </ion-buttons>
+      </ion-card-content>
+    </ion-card>
+    <ion-card *ngIf="ripple == true">
+      <ion-card-header>
+        <ion-card-title>RIPPLE</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        Balance: 200
+        <ion-buttons class="btn" (click)="showMore()">
+          <button style="background: inherit; color: white">
+            Show More
+          </button>
+        </ion-buttons>
+      </ion-card-content>
+    </ion-card>
+    <!--<ion-card>-->
+      <!--<ion-card-header>-->
+        <!--<ion-card-title>RIPPLE</ion-card-title>-->
+      <!--</ion-card-header>-->
+      <!--<ion-card-content>-->
+        <!--Balance: 200-->
+        <!--<ion-buttons class="btn" (click)="showMore()">-->
+          <!--<button style="background: inherit; color: white">-->
+            <!--Show More-->
+          <!--</button>-->
+        <!--</ion-buttons>-->
+      <!--</ion-card-content>-->
+    <!--</ion-card>-->
   </div>
+  <ion-fab right bottom>
+    <button ion-fab>
+      <ion-icon name="add" color="white" style="font-weight: 600"></ion-icon>
+    </button>
+    <ion-fab-list side="top" style="width: 50px; margin-right: 750px">
+      <span style="width: 280px; margin-right: 73px; margin-bottom: 20px"  (click)="apply1()"><span style="color: #515151; font-size: 16px">Add ethereum account</span>
+         <img [src]="defaultImg4" alt="" style="border-radius: 30px; width: 40px; height: 40px; margin-bottom: -15px;">
+      <!--<button icon-only class="btnfab">-->
 
-  <!--Предложенные заявки-->
+        <!--<ion-icon name="add"></ion-icon>-->
+      <!--</button>-->
+      </span>
+      <span style="width: 280px; margin-right: 36px;  margin-bottom: 20px" (click)="createBitcoin()"><span style="color: #515151; font-size: 16px">Add bitcoin account</span>
+        <img [src]="defaultImg4" alt="" style="border-radius: 30px; width: 40px; height: 40px; margin-bottom: -15px;">
+      <!--<button icon-only class="btnfab">-->
 
-  <div class="card_indent">
-    <div *ngIf="!myJobs">
-      <div *ngIf="!showSearchbar">
-        <ion-card  *ngFor="let entity of orderJobsList">
-          <ion-icon class="icon-right" name="close" (click)="declineOrder(entity.id)"></ion-icon>
-          <ion-card-header text-wrap>
-            <ion-avatar item-start>
-              <div class="visual">
-                <img *ngIf="entity.photo_path" [src]="entity.photo_path">
-              </div>
-            </ion-avatar>
-            <div class="entity_info">
-              <span text-wrap>
-                <h1><b>{{entity.first_name}} {{entity.last_name}}</b></h1><p>надіслав Вам заявку на роботу</p>
-              </span>
-            </div>
-          </ion-card-header>
-          <div class="work_title">
-            <h1>{{entity.title}}</h1>
-          </div>
-          <ion-card-content>
-            <div *ngIf="!(entity.id === jobsId && entity.sender_id === sendId)" (click)="moreInfo(entity.id, entity.sender_id)" class="work_description">
-              <p class="cutter">{{entity.description}}</p>
-            </div>
-            <div *ngIf="entity.id === jobsId && entity.sender_id === sendId" class="work_description">
-              <p text-wrap>{{entity.description}}</p>
-            </div>
+        <!--<ion-icon name="add"></ion-icon>-->
+      <!--</button>-->
+      </span>
+      <span style="width: 280px; margin-right: 20px;  margin-bottom: 20px" (click)="ripple1()"><span style="color: #515151; font-size: 16px">Add ripple account</span>
+        <img [src]="defaultImg4" alt="" style="border-radius: 30px; width: 40px; height: 40px; margin-bottom: -15px;">
+      <!--<button icon-only class="btnfab">-->
 
-            <!--Далее происходят очень жуткие вещи-->
+        <!--<ion-icon name="add"></ion-icon>-->
+      <!--</button>-->
+      </span>
+    </ion-fab-list>
 
-            <p><img [src]="imageURI"><div class="test">&nbsp;{{entity.start_date | date: 'dd/MM/yyyy'}} - {{entity.end_date | date: 'dd/MM/yyyy'}}</div></p>
-            <p><span><img [src]="imageURI2"><div class="test"><b>&nbsp;${{entity.price}}</b></div></span><br>
-              <span><img [src]="imageURI3">&nbsp;&nbsp;{{entity.city}}</span></p>
-            <div class="note">
-            <span>Розміщено: {{(entity.createdRecently ? entity.createdRecently : entity.created_at | date: 'dd/MM/yyyy, hh:mm' )}}
-              <p><ion-icon name="eye"></ion-icon>&nbsp;{{entity.count}}</p>
-            </span>
-            </div>
-
-            <!--Вроде тут всё кончилось-->
-
-            <div class="shared_buttons">
-              <span (click)="applyOrder(entity.job_id, entity.id)">
-                <button ion-button>Подати заявку</button>
-              </span>
-              <span (click)="shareJob(entity.id)">
-                <div class="share_butt"><img [src]="imageURI4"></div>
-              </span>
-            </div>
-          </ion-card-content>
-        </ion-card>
-      </div>
-
-      <!--Все предложения о работе-->
-
-      <ion-card  *ngFor="let entity of allJobsList">
-        <ion-card-header>
-          <div class="work_title">
-            <h1>{{entity.title}}</h1>
-          </div>
-        </ion-card-header>
-        <ion-card-content>
-          <div *ngIf="entity.id !== jobsId" (click)="moreInfo(entity.id)" class="work_description">
-            <p class="cutter">{{entity.description}}</p>
-          </div>
-          <div *ngIf="entity.id === jobsId" class="work_description">
-            <p text-wrap>{{entity.description}}</p>
-          </div>
-
-          <!--Снова страшные вещи-->
-
-          <p><img [src]="imageURI"><div class="test">&nbsp;{{entity.start_date | date: 'dd/MM/yyyy'}} - {{entity.end_date | date: 'dd/MM/yyyy'}}</div></p>
-          <p><span><img [src]="imageURI2"><div class="test"><b>&nbsp;${{entity.price}}</b></div></span><br>
-            <span><img [src]="imageURI3">&nbsp;&nbsp;{{entity.city}}</span></p>
-          <div class="note">
-            <span>Розміщено: {{(entity.createdRecently ? entity.createdRecently : entity.created_at | date: 'dd/MM/yyyy, hh:mm' )}}
-              <p><ion-icon name="eye"></ion-icon>&nbsp;{{entity.count}}</p>
-            </span>
-          </div>
-
-          <!--Фууууууух, закончилось-->
-
-          <div class="shared_buttons">
-            <span (click)="applyJob(entity.id)">
-              <button ion-button>Подати заявку</button>
-            </span>
-            <span (click)="shareJob(entity.id)">
-              <div class="share_butt"><img [src]="imageURI4"></div>
-            </span>
-          </div>
-        </ion-card-content>
-      </ion-card>
-      <div class="alert_message" justify-content-between align-items-center *ngIf="!allJobsList || allJobsList.length === 0">
-        <h6 text-center>
-          Пропозицій немає
-        </h6>
-      </div>
-    </div>
-
-    <!--Мои заявки-->
-
-    <div class="card_indent">
-      <div *ngIf="myJobs">
-        <ion-card *ngFor="let entity of myJobsList">
-          <ion-icon class="icon-right" name="close" (click)="deleteMyJobs(entity.id)"></ion-icon>
-          <ion-card-header>
-            <h1>{{entity.title}}</h1>
-          </ion-card-header>
-          <ion-card-content>
-            <div *ngIf="entity.id !== jobsId" (click)="moreInfo(entity.id)" class="work_description">
-              <p class="cutter">{{entity.description}}</p>
-            </div>
-            <div *ngIf="entity.id === jobsId" class="work_description">
-              <p text-wrap>{{entity.description}}</p>
-            </div>
-
-            <!--Оооо неееет!!-->
-
-            <p><img [src]="imageURI"><div class="test">&nbsp;{{entity.start_date | date: 'dd/MM/yyyy'}} - {{entity.end_date | date: 'dd/MM/yyyy'}}</div></p>
-            <p><span><img [src]="imageURI2"><div class="test"><b>&nbsp;${{entity.price}}</b></div></span><br>
-              <span><img [src]="imageURI3">&nbsp;&nbsp;{{entity.city}}</span></p>
-            <div class="note">
-            <span>Розміщено: {{(entity.createdRecently ? entity.createdRecently : entity.created_at | date: 'dd/MM/yyyy, hh:mm' )}}
-              <p><ion-icon name="eye"></ion-icon>&nbsp;{{entity.count}}</p>
-            </span>
-            </div>
-
-            <!--Всё-->
-
-            <div class="shared_buttons">
-              <span (click)="shareJob(entity.job_id)">
-                <div class="share_butt"><img [src]="imageURI4"></div>
-              </span>
-            </div>
-          </ion-card-content>
-        </ion-card>
-        <div class="alert_message" justify-content-between align-items-center *ngIf="!myJobsList || myJobsList.length === 0">
-          <h6 text-center>
-            Ви не подали жодної заявки
-          </h6>
-        </div>
-      </div>
-    </div>
-  </div>
+  </ion-fab>
 </ion-content>
+<ion-footer>
+    <table style="width: 100%; text-align: center">
+      <tr style="color: #dedede; font-size: 20px">
+        <td  style="color: #2faeff;" (click)="wallet()"><i class="fas fa-wallet"></i></td>
+        <td (click)="depositpage()">
+          <i class="far fa-credit-card"></i>
+          <!--<i class="far fa-credit-card"></i>-->
+          <!--<img [src]="defaultImg1" >-->
+        </td>
+        <td (click)="withdraw()">
+          <i class="far fa-credit-card fa-flip-vertical"></i>
+          <!--<img [src]="defaultImg2">-->
+          <!--<i class="far fa-credit-card"></i>-->
+        </td>
+        <td (click)="exchange()">
+          <i class="fas fa-sync"></i>
+          <!--<img [src]="defaultImg3" style="padding-top: 3px">-->
+          <!--<i class="fas fa-donate"></i>-->
+        </td>
+        <td (click)="sendp()">   <ion-icon ios="ios-send" md="md-send"></ion-icon>
+        </td>
+      </tr>
+      <!--<tr style="color: #dedede; font-size: 20px">-->
+        <!--<td style="color: #2faeff;" (click)="wallet()"><i class="fas fa-wallet"></i></td>-->
+        <!--<td (click)="depositpage()">-->
+          <!--&lt;!&ndash;<i class="far fa-credit-card"></i>&ndash;&gt;-->
+          <!--<img [src]="defaultImg1" >-->
+        <!--</td>-->
+        <!--<td (click)="withdraw()">-->
+          <!--<img [src]="defaultImg2">-->
+          <!--&lt;!&ndash;<i class="far fa-credit-card"></i>&ndash;&gt;-->
+        <!--</td>-->
+        <!--<td (click)="exchange()">-->
+          <!--<img [src]="defaultImg3" style="padding-top: 3px">-->
+          <!--&lt;!&ndash;<i class="fas fa-donate"></i>&ndash;&gt;-->
+        <!--</td>-->
+        <!--<td (click)="sendp()">  <ion-icon name="send"></ion-icon></td>-->
+      <!--</tr>-->
+      <tr style="color: #dedede">
+        <td (click)="wallet()">Wallets</td>
+        <td  (click)="depositpage()">Deposit</td>
+        <td (click)="withdraw()">Withdraw</td>
+        <td  (click)="exchange()">Exchange</td>
+        <td  (click)="sendp()">Send</td>
+      </tr>
+    </table>
+</ion-footer>
+<!--<page-mainboard></page-mainboard>-->
+<!--</ion-menu>-->
+<!--<ion-nav [root]="rootPage" #content></ion-nav>-->
+<!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+<!--<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>-->

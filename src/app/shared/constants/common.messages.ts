@@ -11,16 +11,30 @@ export const COMMON_MSG = {
     remove: 'Заявку видаленно'
   },
   user: {
-    create: 'Реєстрація пройшла успішно. Увійдіть з вашими данними',
+    passwupd:'Password is updated',
+    pictupd:'Picture is updated',
+    passwnot:'Password is not updated',
+    pictnot:'Picture is not updated',
+    deletepict:'Picture is deleted',
+    deletepictnot:'Picture is not deleted',
+    walletadd:'Wallet is added',
+    walletaddnot:'Wallet is not added',
+    create: 'Account has created',
     err: 'Користувач з вказанним номером вже існує',
-    empty: 'Заповніть всі поля',
+    empty: 'Fill in all the fields',
     number: 'Номер телефону має бути 12 цифр',
-    password: 'Пароль має бути 6-15 символів',
+    password: 'Password must be at least 6 characters',
+    pass: 'Password not found',
+    em: 'Email not found',
     update: 'Інформацію успішно оновлено',
     remove: 'Користувача успішно видаленно',
-    emailerr: 'email не відповідає стандартам',
+    emailerr: 'E-mail is not correct',
     field: 'Імя або прізвище не відповідає стандартам',
-    city: 'Назва міста не відповідає стандартам'
+    city: 'Назва міста не відповідає стандартам',
+    info: 'Information is updated',
+    erro: 'Information is not updated',
+    er: 'One field has been fill in',
+    bitc:'Bitcoin is created'
   },
   skill: {
     create: 'Навички збережено успішно',
@@ -28,7 +42,7 @@ export const COMMON_MSG = {
     remove: 'Навички видаленні'
   },
   connection: {
-    onConnect: "З'єднання з мережею поновлено",
+    onConnect: "Connected",
     onDisconnect: "Відсутнє з'єднання з мережею"
   }
 };

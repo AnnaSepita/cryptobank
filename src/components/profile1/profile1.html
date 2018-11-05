@@ -1,0 +1,34 @@
+<!-- Generated template for the Profile1Component component -->
+<div class="prof">
+  <div class="img">
+    <ion-buttons left (click)="back()" >
+      <button style="background: inherit; color: white" icon-only>
+        <ion-icon name="close"></ion-icon>
+      </button>
+    </ion-buttons>
+    <!--<div style="float: right">-->
+    <table>
+      <tr>
+          <img [src]="defaultImg" alt="" *ngIf="!this.entity.photo_path || this.entity.photo_path=='undefined'"  style="border-radius: 30px; width: 75px; height: 75px;">
+        <span showWhen="this.entity.photo_path!='' || this.entity.photo_path!='undefined'">
+          <img [src]="this.entity.photo_path" alt="" *ngIf="this.entity.photo_path!='' "  style="border-radius: 30px; width: 75px; height: 75px">
+        </span>
+
+        <!--&lt;!&ndash;<img src="../../assets/icons/user2.png" style="border-radius: 30px" width="75" height="75" >&ndash;&gt;-->
+        <!--<img [src]="defaultImg" alt="" *ngIf="!this.entity.photo_path"  style="border-radius: 30px" width="75" height="75">-->
+        <!--<img [src]="this.entity.photo_path" alt="" *ngIf="this.entity.photo_path!=''"  style="border-radius: 30px;" width="75" height="75">-->
+      </tr>
+      <tr>
+        <h4 right><span *ngIf="this.entity.name != undefined">{{this.entity.name }}</span> <span *ngIf="this.entity.surname != undefined">{{this.entity.surname}}</span></h4>
+      </tr>
+    </table>
+    <!--</div>-->
+  </div>
+  <div class="menu">
+    <!--<table >-->
+      <p class="set1" (click)="setting()">Settings&nbsp; <ion-icon name="settings" style="color: #38b9f8"></ion-icon></p>
+      <p class="set" (click)="support()">Support&nbsp; <i class="far fa-comment" style="color: #38b9f8"></i></p>
+      <p class="set2" color="#dedede" (click)="exit()">Log out&nbsp; <ion-icon name="exit"  style="color: #dedede"></ion-icon></p>
+    <!--</table>-->
+  </div>
+</div>

@@ -1,0 +1,89 @@
+exchangecomfirmation {
+  background: white;
+  .current{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background: linear-gradient( to right, #39aafb, #38b9f8, #39cefa );
+    color: white;
+    width: 100%;
+    text-align: center;
+    font-size: 16px;
+  }
+  ion-navbar, .toolbar .toolbar-md, ion-header{
+    background: linear-gradient( to right, #39aafb, #38b9f8, #39cefa );
+    color: white;
+  }
+  .fa-angle-right{
+    //font-size: 4px;
+    margin-top: 25px;
+    //color: #38b9f8;
+  }
+  .btn{
+    color: white;
+    font-size: 16px;
+    float: right;
+    width: 100px;
+    text-align: center;
+    background: linear-gradient( to right, #39aafb, #38b9f8, #39cefa );
+    //padding-left: 20px;
+    //padding-right: 5px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    margin-right: 10px;
+    border-radius: 14px;
+    margin-top: -15px;
+  }
+  ion-card{
+    line-height: 5px;
+  }
+  .fab-md{
+    background: linear-gradient( to right, #39aafb, #38b9f8, #39cefa );
+  }
+  ion-fab{
+    position: fixed;
+
+    .icon{
+      color:white;
+    }
+  }
+  ion-card-content{
+    margin-top: -15px;
+  }
+  .toolbar-md {
+    padding: 4px;
+    min-height: 56px;
+    background: linear-gradient( to right, #39aafb, #38b9f8, #39cefa );
+  }
+  ion-fab[bottom]{
+    bottom: 10%;
+
+  }
+  ion-fab .icon{
+    font-size: 41px;
+  }
+  ion-content{
+    margin-top: -20px;
+    right: 0;
+  }
+  h6{
+    color: #38b9f8;
+    text-align: left;
+    font-size: 12px;
+  }
+  .card-title-md {
+    display: block;
+    font-size: 1.4rem;
+    line-height: 1.2;
+    color: rgb(34, 34, 34);
+    margin: 2px 0px;
+    padding: 8px 0px;
+    font-weight: 700;
+    margin-top: -10px;
+  }
+  //ion-card{
+  //  margin-top: -30px;
+  //}
+  .scroll-content {
+    background: white;
+  }
+}

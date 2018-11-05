@@ -1,0 +1,86 @@
+<ion-header style="background: #488aff">
+  <ion-navbar>
+    <ion-buttons left (click)="back()">
+      <button ion-button icon-only>
+        <ion-icon name="close"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title text-center>
+      KYC
+    </ion-title>
+    <ion-buttons (click)="showSearchBar()" right>
+      <button style="background: inherit; color: white">
+        Apply
+        <!--<ion-icon name="user" ios="ios-search" md="md-search"></ion-icon>-->
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<!--Карточки-->
+
+<ion-content padding-vertical >
+  <!--<div class="current">-->
+    <!--<p style="font-size: 18px">200,95</p>-->
+    <!--<p>Current Balance</p>-->
+    <!--<p><b>ID:</b>6789RDJ372HT37597</p>-->
+  <!--</div>-->
+  <!--<div style="background: #ea2e4e; text-align: center; color: white; padding-top: 5px; padding-bottom: 5px; font-size: 14px"-->
+       <!--(click)="verified()">-->
+    <!--You are ot verified. Please verify for using cryptobank-->
+  <!--</div>-->
+  <div style="padding-left: 30px; text-align: left; padding-top: 20px">
+    <p style="color: #515151; font-size: 16px">Private Details</p>
+    <p style="color: #bbbbbb; font-size: 13px">Passport</p>
+  </div>
+  <div  style=" text-align: left; padding-left: 40px; padding-top: 20px">
+    <p style="color: #38b9f8; font-size: 13px">Name</p>
+    <input type="text"  [(ngModel)]="entity.name">
+    <p style="color: #38b9f8; font-size: 13px">Surname</p>
+    <input type="text"  [(ngModel)]="entity.surname">
+    <p style="color: #38b9f8; font-size: 13px">Country</p>
+    <input type="text"  [(ngModel)]="entity.country">
+    <p style="color: #38b9f8; font-size: 13px">City</p>
+    <input type="text"  [(ngModel)]="entity.sity">
+    <!--<p style="color: #38b9f8; font-size: 13px">Gorod</p>-->
+    <!--<input type="text"  [(ngModel)]="entity.gorod">-->
+    <p style="color: #38b9f8; font-size: 13px">Address</p>
+    <input type="text"  [(ngModel)]="entity.address">
+    <p style="color: #38b9f8; font-size: 13px">Date of birth</p>
+    <input type="text"  [(ngModel)]="entity.date">
+
+      <table>
+    <tr>
+      <td>
+        <span style="color: #bbbbbb; font-size: 13px">Photo password</span>
+      </td>
+      <td>
+        <ion-buttons left >
+          <button icon-only class="down">
+            <ion-icon name="cloud-upload"></ion-icon>
+            <!--<ion-icon name="add"></ion-icon>-->
+          </button>
+        </ion-buttons>
+      </td>
+      <td style="color: #bbbbbb; font-size: 13px"  (click)="openPhotoActions()">
+        Choose a file...
+      </td>
+    </tr>
+    <tr>
+      <td><span style="color: #bbbbbb; font-size: 13px">Add proof of<br> address</span></td>
+      <td>
+        <ion-buttons left >
+          <button icon-only class="down">
+            <ion-icon name="cloud-upload"></ion-icon>
+            <!--<ion-icon name="add"></ion-icon>-->
+          </button>
+        </ion-buttons>
+      </td>
+      <td  style="color: #bbbbbb; font-size: 13px"  (click)="openPhotoActions2()">
+        Choose a file...
+      </td>
+    </tr>
+  </table>
+
+  </div>
+</ion-content>

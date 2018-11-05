@@ -22,13 +22,14 @@ export class AuthService extends ConstantHelperService {
      * @param {loginCredentials} credentials
      * @returns {Observable<any>}
      */
-    login(credentials: loginCredentials): Observable<any> {
+    login(data: any): Observable<any> {
         const url = this.url('login');
-        return this.request.post(url, credentials)
+        return this.request.post(url, data)
             .do(() => {
                 },
                 () => {
                     const msg = this.msg('login');
+                  console.log('credentials', data);
                     this.notification('error', msg)
                 })
     }

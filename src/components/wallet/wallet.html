@@ -1,0 +1,105 @@
+<ion-header style="background: #488aff">
+  <ion-navbar>
+    <ion-buttons left (click)="back()">
+      <button ion-button icon-only>
+        <ion-icon name="close"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title text-center>
+      Add wallets
+    </ion-title>
+    <ion-buttons right (click)="apply()">
+      <button ion-button icon-only>
+        <ion-icon name="checkmark"></ion-icon>
+      </button>
+    </ion-buttons>
+    <!--<ion-buttons right (click)="showSearchBar()">-->
+    <!--<button icon-only style="background: inherit; color: white;">-->
+    <!--<ion-icon name="checkmark"></ion-icon>-->
+    <!--</button>-->
+    <!--</ion-buttons>-->
+    <!--<ion-buttons (click)="showSearchBar()" right>-->
+    <!---->
+    <!---->
+    <!--<button>-->
+    <!--Apply-->
+    <!--&lt;!&ndash;<ion-icon name="user" ios="ios-search" md="md-search"></ion-icon>&ndash;&gt;-->
+    <!--</button>-->
+    <!--</ion-buttons>-->
+  </ion-navbar>
+</ion-header>
+
+<!--Карточки-->
+
+<ion-content padding-vertical >
+  <div class="current">
+    Add new credit card/card
+  </div>
+  <div  style=" text-align: left; padding-left: 20px; padding-top: 20px">
+    <p style="color: #38b9f8; font-size: 12px">Card No.</p>
+    <input type="text" style="width: 80%" [(ngModel)]='entity.key'>
+    <img [src]="defaultImg" style="margin-left: 10px">
+    <p style="color: #38b9f8; font-size: 12px">Expiration Date</p>
+    <input type="text"  style="width: 20%" [(ngModel)]='entity.mounth'>
+    <span padding="3px;" style="color:#dedede">/</span>
+    <input type="text"  style="width: 20%" [(ngModel)]='entity.year'>
+    <p style="color: #38b9f8; font-size: 12px">Security Code</p>
+    <input type="text"  style="width: 80%" [(ngModel)]='entity.cardnomer'>
+    <p style="color: #38b9f8; font-size: 12px">Cardholder Name</p>
+    <input type="text"  style="width: 42%" [(ngModel)]='entity.name'>
+    <input type="text"  style="width: 42%; margin-left: 10px" [(ngModel)]='entity.surname'>
+    <table>
+      <tr>
+        <td style="padding-right: 10px;
+    padding-top: 20px;">
+          <p><b>Save card</b></p>
+          <p style="color: #bbbbbb; font-size: 12px">You can delete card at any time in settings</p>
+        </td>
+        <td style="padding-right: 10px;
+    padding-top: 20px;">
+          <label (click)="check1()" *ngIf="check == false">
+            <input class="checkbox" type="checkbox" name="checkbox-test">
+            <span class="checkbox-custom"></span>
+            <span class="label"></span>
+          </label>
+          <img [src]="defaultImg4" *ngIf="check == true" (click)="check2()" class="img">
+          <!--<input type="checkbox" checked float="right">-->
+          <!--<ion-buttons left >-->
+          <!--<button icon-only class="down">-->
+          <!--<ion-icon name="add"></ion-icon>-->
+          <!--</button>-->
+          <!--</ion-buttons>-->
+        </td>
+      </tr>
+
+    </table>
+
+  </div>
+</ion-content>
+<ion-footer>
+  <table style="width: 100%; height: 30px; text-align: center">
+    <tr style="color: #dedede; font-size: 20px">
+      <td style="color: #dedede;" (click)="wallet()"><i class="fas fa-wallet"></i></td>
+      <td (click)="depositpage()">
+        <!--<i class="far fa-credit-card"></i>-->
+        <img [src]="defaultImg1">
+      </td>
+      <td (click)="withdraw()">
+        <img [src]="defaultImg2">
+        <!--<i class="far fa-credit-card"></i>-->
+      </td>
+      <td (click)="exchange()">
+        <img style="padding-top: 3px" [src]="defaultImg3">
+        <!--<i class="fas fa-donate"></i>-->
+      </td>
+      <td (click)="sendp()">  <ion-icon name="send"></ion-icon></td>
+    </tr>
+    <tr style="color: #dedede">
+      <td (click)="wallet()">Wallets</td>
+      <td  (click)="depositpage()">Deposit</td>
+      <td (click)="withdraw()">Withdraw</td>
+      <td  (click)="exchange()">Exchange</td>
+      <td  (click)="sendp()">Send</td>
+    </tr>
+  </table>
+</ion-footer>

@@ -1,5 +1,6 @@
 import {Component} from "@angular/core";
 import {NavController} from "ionic-angular";
+import {Profile1Component} from "../../../../components/profile1/profile1";
 
 @Component({
   selector: 'page-support',
@@ -25,6 +26,12 @@ export class SupportComponent {
     }
   }
 
+  back(){
+    this.navCtrl.setRoot(Profile1Component);
+  }
+  showSearchBar1(){
+    this.navCtrl.setRoot(Profile1Component);
+  }
   goBack() {
     this.navCtrl.pop();
   }
