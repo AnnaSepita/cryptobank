@@ -11,15 +11,15 @@ import {MainboardComponent} from "../../mainboard/mainboard.component";
 
 export class RegistrationComponent {
   public isActive: boolean;
+
   public user: loginCredentials = {
     name: '',
     email: '',
-   // phone: '',
     password: '',
-    access_token:'tgzNkRaYptaE84b0XJJLUtimVjwcjpeu',
-    picture: '',
+    access_token: 'tgzNkRaYptaE84b0XJJLUtimVjwcjpeu',
     role: ''
   };
+
   public defaultImg: string;
   public defaultImg1: string;
   public defaultImg2: string;
@@ -53,23 +53,11 @@ export class RegistrationComponent {
     this.service.create(this.user)
       .subscribe(data => {
           this.navCtrl.push(MainboardComponent);
-          console.log(data);
-          console.log('success');
           localStorage.token = data['token'];
-          console.log(localStorage.token);
-          // localStorage.token = success['user']['token'];
           localStorage.user_id = data['user']['id'];
-          console.log(localStorage.user_id);
           localStorage.user_email = data['user']['email'];
-          // localStorage.user_name = data['user']['name'];
-          // localStorage.user_picture = data['user']['picture'];
-          console.log(localStorage.user_email);
           localStorage.user_verified = data['user']['verified'];
           localStorage.user_docs = data['user']['docs'];
-          console.log(localStorage.user_verified);
-          console.log(localStorage.user_docs);
-          // console.log(localStorage.user_name);
-          // console.log(localStorage.user_picture);
         },
         error => {
           console.log(error)

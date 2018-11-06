@@ -29,7 +29,6 @@ export class AuthService extends ConstantHelperService {
                 },
                 () => {
                     const msg = this.msg('login');
-                  console.log('credentials', data);
                     this.notification('error', msg)
                 })
     }

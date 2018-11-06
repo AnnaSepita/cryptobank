@@ -9,35 +9,11 @@ page-auth {
         height: 100%;
         margin-bottom: 25px;
         margin-top: 16%;
-        //margin-top: 30px;
       }
     }
     ion-row.logo_container {
       margin-top: 65px;
     }
-  }
-}
-
-.btn_container {
-  width: 100%;
-  text-align: center;
-  margin-top: 20px;
-  padding: 20px 0;
-  button {
-    background-color: $blue_without_gradient_bg;
-    border-radius: $border_radius_bnt;
-    border-color: transparent;
-    width: 70%;
-    font-size: 20px;
-    padding: 22px 0;
-    font-family: "Lato Light";
-    font-weight: bold;
-    margin-top: 20px;
-  }
-  button:last-child {
-    background-color: transparent;
-    border: 1px solid $blue_without_gradient_bg;
-    color: $blue_without_gradient_bg;
   }
 }
 

@@ -1,0 +1,117 @@
+/*@import "./auth/login/login.component";
+@import "./auth/registration/registration.component";*/
+//@import "./mainboard/job-list/job-list.component";
+//@import "./mainboard/profile/profile.component";
+//@import "./mainboard/profile/user-skill-range/user-skill-range.component";
+//.checkbox-md-primary .checkbox-checked {
+//  background-color: rgb(255, 255, 255);
+//  border-color: $active_bg_color;
+//  .checkbox-inner {
+//    border-color: $header_bg_color !important;
+//  }
+//}
+
+
+ion-icon{
+  font-size: 1.4em;
+}
+@font-face {
+  font-family: "Glypicons";
+  font-style: normal;
+  font-weight: 700;
+  src: local("glypicons regular"), local("glypicons-bold"), url("../assets/fonts/glyphicons-halflings-regular.ttf") format("truetype"), url("../assets/fonts/glyphicons-halflings-regular.woff") format("woff");
+}
+
+ion-navbar{
+  background: #488aff;
+  color: white;
+}
+.button-md{
+  background-color: $header_bg_color;
+  border-radius: 8px;
+  text-transform: none;
+  border: 1px solid black;
+}
+
+// login and registration page
+
+.form-block {
+  .input-block{
+    border-bottom: 1px solid #C9C9C9;
+    display: flex;
+    .item {
+      padding-left: 0;
+      width: 90%;
+    }
+    .item-inner {
+      border-bottom: none !important;
+      box-shadow: none !important;
+    }
+  }
+
+  margin: 10px 0 0 0;
+  width: 90%;
+  margin-left: 5%;
+  border-radius: 12px;
+  background: rgb(255, 255, 255);
+  padding: 30px;
+  padding-top: 20px;
+  padding-bottom: 5px;
+  div {
+    padding-top: 0;
+    margin-top: 0;
+  }
+  .icon {
+    font-size: 20px;
+    padding-bottom: 5px;
+    color: #838383;
+    display: flex;
+    align-items: flex-end;
+  }
+}
+.logo_container {
+  text-align: center;
+  display: block;
+  margin-top: 23px;
+  img {
+    width: 150px;
+  }
+  .title_container {
+    font-size: 23px;
+    padding-bottom: 15px;
+    color: rgb(255, 255, 255);
+    font-weight: 300;
+    margin: 0;
+  }
+}
+.btn_container {
+  width: 100%;
+  text-align: center;
+  margin-top: 20px;
+  padding: 20px 0;
+  button {
+    background-color: $blue_without_gradient_bg;
+    border-radius: $border_radius_bnt;
+    border-color: transparent;
+    width: 70%;
+    font-size: 20px;
+    padding: 22px 0;
+    font-family: "Lato Light";
+    font-weight: bold;
+    margin-top: 20px;
+  }
+  button:last-child {
+    background-color: $blue_without_gradient_bg;
+    border: 1px solid $blue_without_gradient_bg;
+    color: white;
+  }
+}
+.auth-footer {
+  text-align: center;
+  p {
+    color: $grey_color;
+  }
+  a {
+    text-decoration: underline;
+  }
+}
