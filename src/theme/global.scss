@@ -48,7 +48,6 @@ ion-navbar{
       box-shadow: none !important;
     }
   }
-
   margin: 10px 0 0 0;
   width: 90%;
   margin-left: 5%;
@@ -64,7 +63,7 @@ ion-navbar{
   .icon {
     font-size: 20px;
     padding-bottom: 5px;
-    color: #838383;
+    color: #c5c5c5 ;
     display: flex;
     align-items: flex-end;
   }
@@ -114,4 +113,7 @@ ion-navbar{
   a {
     text-decoration: underline;
   }
+}
+.label-md[floating] {
+  color: $grey_color !important;
 }

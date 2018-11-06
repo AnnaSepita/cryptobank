@@ -3,10 +3,12 @@ const api = 'http://167.99.208.229:9000/';
 // const api = 'https://hireman.smartcapper.online/server/public/api/';
 
 export const COMMON_URL = {
+
   auth: {
     login: api + 'auth', //
     logout: api + 'logout'
   },
+
   user: {
     index: api + 'users/me', //
     create: api + 'users', //
@@ -25,6 +27,7 @@ export const COMMON_URL = {
     key: api + 'users/key',
     users: api +'users'
   },
+
   job: {
     index: api + 'jobs',
     apply: api + 'jobs',
@@ -32,21 +35,25 @@ export const COMMON_URL = {
     remove: api + 'deleteorder/',
     order: api + 'orderjobs'
   },
+
   my_job: {
     index: api + 'myjobs',
     remove: api + 'jobs/',
     search: api + 'search'
 
   },
+
   all_skill: {
     index: api + 'skill',
   },
+
   skill: {
     index: api + 'myskill',
     create: api + 'skill',
     update: api + 'updatelevel',
     remove: api + 'deleteskill'
   },
+
   friend: {
     index: api + 'friend',
     incoming: api + 'friend/incoming',

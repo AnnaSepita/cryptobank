@@ -15,20 +15,13 @@ import {UserService} from "../../app/shared/services/user.service";
   templateUrl: 'forgotpassword.html'
 })
 export class ForgotpasswordComponent {
-  public user = {
-    email: '',
-     phone: '',
-    // password: '',
-    // access_token: 'tgzNkRaYptaE84b0XJJLUtimVjwcjpeu',
-    // picture: '',
-    // role: ''
-  };
+    public email: string = '';
+    public number: any;
   text: string;
   defaultImg1;
   defaultImg2;
   constructor(private nav:NavController, private userServ: UserService) {
     console.log('Hello ForgotpasswordComponent Component');
-    this.text = 'Hello World';
     this.defaultImg1 = 'assets/icons/mail.png';
     this.defaultImg2 = 'assets/icons/phone.png';
   }
@@ -36,7 +29,7 @@ export class ForgotpasswordComponent {
     this.nav.setRoot(LoginComponent)
   }
 
-  login(){
+  send(){
     // if(this.userServ.credentialsCheck1(this.user)) {
       this.nav.setRoot(SmsComponent)
     // }

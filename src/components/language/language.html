@@ -52,7 +52,15 @@
           <tr style="border-bottom: 1px solid #dedede; padding-bottom: 6px;  padding-top: 5px;" (click)="lang()">
             <!--<ion-label>-->
             <td> <img width="40" height="40" [src]="defaultImg2"></td>
-            <td> <h2>Russian</h2></td>
+            <td> <h2>Deutch</h2></td>
+            <td style="float: right"><img [src]="defaultImg3" width="35" height="33"  *ngIf="!check"></td>
+            <td style="float: right"><img [src]="defaultImg4" width="35" height="33"  *ngIf="check"></td>
+            <!--</ion-label>-->
+          </tr>
+          <tr style="border-bottom: 1px solid #dedede; padding-bottom: 6px;  padding-top: 5px;" (click)="lang()">
+            <!--<ion-label>-->
+            <td> <img width="40" height="40" [src]="defaultImg2"></td>
+            <td> <h2>Français</h2></td>
             <td style="float: right"><img [src]="defaultImg3" width="35" height="33"  *ngIf="check == false"></td>
             <td style="float: right"><img [src]="defaultImg4" width="35" height="33"  *ngIf="check == true"></td>
             <!--</ion-label>-->

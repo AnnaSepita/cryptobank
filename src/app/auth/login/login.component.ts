@@ -58,32 +58,15 @@ export class LoginComponent {
     }
 
     login() {
-        // if (localStorage.token != null || localStorage.token != undefined){
-        //   this.user.access_token = localStorage.token;
-        // }
-        // const myHeaders = new HttpHeaders().set("Authorization", "Basic " + btoa(this.user.email + ":" + this.user.password));
-        // const data = { "access_token": this.user.access_token };
-        //
-        // this.http.post('http://167.99.208.229:9000/auth', data, { headers: myHeaders }).subscribe(success => {
-        //     //console.log(myHeaders)
-        //     console.log(success);
-        //     this.navCtrl.setRoot(MainboardComponent);
-        //   },
-        //   err => {
-        //     console.log(err);
-        //   });
-        // this.navCtrl.setRoot(MainboardComponent);
         const myHeaders = new HttpHeaders().set("Authorization", "Basic " + btoa(this.user.email + ":" + this.user.password));
         const data = {"access_token": this.user.access_token};
-        console.log(btoa(this.user.email));
-        console.log(btoa(this.user.email + ":" + this.user.password));
         this.http.post('http://167.99.208.229:9000/auth', data, {headers: myHeaders}).subscribe(success => {
                 this.navCtrl.setRoot(MainboardComponent);
                 localStorage.token = success['token'];
                 localStorage.user_id = success['user']['id'];
-                localStorage.user_email = success['user']['email'];
-                localStorage.user_verified = success['user']['verified'];
-                localStorage.user_docs = success['user']['docs'];
+                // localStorage.user_email = success['user']['email'];
+                // localStorage.user_verified = success['user']['verified'];
+                // localStorage.user_docs = success['user']['docs'];
                 this.userService.setUser(success['user']);
                 this.userService.firstEnter().get().then(res => {
                     if (res === 'Unfinished') {

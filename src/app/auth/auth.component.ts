@@ -9,7 +9,6 @@ import {RegistrationComponent} from "./registration/registration.component";
 })
 
 export class AuthComponent {
-
   defaultImg;
   defaultImg1;
     constructor(private navCtrl: NavController) {
